@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Visa Petition Evaluation Form</title>
+<style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .container { margin-top: 20px; }
+    button { padding: 10px 20px; margin: 5px; }
+</style>
+</head>
+<body>
+<h1>Visa Petition Evaluation Form</h1>
+
+<form id="petitionForm">
+    <fieldset>
+        <legend>What Petition would you like to pursue?</legend>
+        <label>
+            <input type="radio" name="petitionType" value="EB-1A">
+            EB-1A
+        </label>
+        <label>
+            <input type="radio" name="petitionType" value="EB-2 NIW">
+            EB-2 NIW
+        </label>
+        <label>
+            <input type="radio" name="petitionType" value="Unsure">
+            Unsure? Let's help you decide.
+        </label>
+    </fieldset>
+
+    <div class="container">
+        <button type="button" onclick="goBack()">Back</button>
+        <button type="button" onclick="saveExit()">Save & Exit</button>
+        <button type="button" onclick="saveContinue()">Save & Continue</button>
+    </div>
+</form>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+
+    function saveExit() {
+        // Implement saving data to local storage or server
+        alert("Data saved. Exiting the form.");
+        window.close(); // Close the tab/window
+    }
+
+    function saveContinue() {
+        // Implement saving data and then continue
+        var form = document.getElementById('petitionForm');
+        var data = new FormData(form);
+        
+        // Example: Log out data, you would instead send this to a server
+        for (var pair of data.entries()) {
+            console.log(pair[0]+ ', ' + pair[1]);
+        }
+        
+        alert("Data saved. You can continue.");
+        // Implement the continuation process, maybe redirect or show next part of form
+    }
+</script>
+
+</body>
+</html>
